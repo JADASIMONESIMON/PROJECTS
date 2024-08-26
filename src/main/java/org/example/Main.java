@@ -2,33 +2,45 @@ package org.example;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-class Vechicle{
-    String brand;
+class  Vehicle{
+    ;
+    int numberOfWheels;
+    String color;
+    float engineSize;
+    String fuelType;
 
-    public Vechicle(String brand){
-        this.brand = brand;
+    public Vehicle(  int numberOfWheels, String color,float engineSize, String fuelType){
+
+        this.numberOfWheels = numberOfWheels;
+        this.color = color;
+        this.engineSize = engineSize;
+        this.fuelType = fuelType;
     }
 
     public void introduce(){
-        System.out.println("This Vechicle is " + brand + ".");
+
+        System.out.println("it has " + numberOfWheels + " wheels, " + color + ", weighs" + engineSize + ", and has " + fuelType + "fuel type." );
+
     }
 }
 
-class Car extends Vechicle{
-    int price;
+class Car extends Vehicle{
+    String brand;
 
-    public Car(String brand, int price){
-        super(brand);
-        this.price = price;
+
+
+    public Car (int numberOfWheels, String color,float engineSize, String fuelType, String brand){
+        super( numberOfWheels, color, engineSize, fuelType );
+        this.brand = brand;
     }
-    public void sale(){
+    public void name(){
         introduce();
-        System.out.println("The car's price is $" + price + "." );
+        System.out.println("The car's price is $" + brand+ "." );
     }
 }
 public class Main{
     public static void main (String[] args){
-        Car car = new Car("Toyota", 12000);
-        car.sale();
+        Car car = new Car(4, "Blue", 100.90f, "gas" , "Toyota");
+        car.name();
     }
 }
